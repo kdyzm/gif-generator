@@ -41,6 +41,7 @@ public class Main {
         }
         File sourceDir = new File(properties.getProperty("dir.source"));
         File targetDir = new File(properties.getProperty("dir.target"));
+        String defaultDelay=properties.getProperty("default.delay");
         if (!sourceDir.exists()) {
             System.out.println("源文件夹不存在");
             return;
@@ -57,7 +58,7 @@ public class Main {
             }
             File[] allImages = getAllImages(imageSourceDir);
             Map<String, Integer> imageDelayConfig = getImageConfig(imageSourceDir);
-            cgi.jpgToGif(allImages, realName, imageDelayConfig);
+            cgi.jpgToGif(allImages, realName, imageDelayConfig,defaultDelay);
         }
     }
 
